@@ -2,6 +2,61 @@
 
 This short Python program implements Shamir's Secret Sharing Scheme (SSS).
 
+## Usage
+
+First, make sure that NumPy is installed.
+
+To run with the default configuration (n=50, k=20, K=1337, p=2**127-1), run
+```
+$ python shamir.py
+```
+
+Run with the help command to find how to configure
+```
+$ python shamir.py --help
+```
+
+Run with the `-v` flag for verbose mode, which prints out all of the keys:
+
+## Example
+
+Running in verbose mode with 5 individuals and 3 necessary to unlock the secret key:
+
+```
+$ python shamir.py -v -n 10 -k 3
+```
+
+```
+#### Shamir's Secret Sharing Scheme ####
+
+p=170141183460469231731687303715884105727
+K=1337 (the key)
+
+#########################################
+
+Distributed public keys:
+[159295934112048856104943720797459882023
+ 3897499456721215129662485829517641142
+ 106359069303894237915449798553830341915
+ 96436624917505388534534964576808954655
+ 82558760913992608939958392144080638617]
+Distributed secret keys:
+[47118056962547522296047871559126950388
+ 60504585901425677614619790584313779760
+ 104434369299853073791090724686225969560
+ 161648570216194248714687996555632176004
+ 49688957303007089389437824881931699753]
+
+submitted:
+public keys: [159295934112048856104943720797459882023
+ 96436624917505388534534964576808954655
+ 82558760913992608939958392144080638617]
+private keys: [47118056962547522296047871559126950388
+ 161648570216194248714687996555632176004
+ 49688957303007089389437824881931699753]
+recovered K=1337
+```
+
 ## High-level Overview of SSS
 
 Suppose you have nuclear launch codes that should stay locked with a key, K, unless k of
